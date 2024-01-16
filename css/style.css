@@ -16,15 +16,41 @@
   --text-color: #333;
   --main-color: #242424;
   --gradient-color: #00b7ff;
-  /* --main-color: #754ef9; */
   --white-color: #fdfdfd;
   --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 :root .dark {
+  font-size: 25px;
+  cursor: pointer;
   --bg-color-dark: #131313;
   --text-color-dark: #fdfdfd;
   --shadow-color: rgb(212, 212, 212);
+}
+
+.dark :hover {
+  transform: scale(1.2);
+  color: #fdc306;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  background-color: #f3f2f2;
+  border-radius: 10rem;
+}
+
+.idiomas {
+  width: 3rem;
+  top: 10px;
+  margin-left: 10px;
+  height: 3rem;
+}
+
+.menu-icon {
+  display: none;
 }
 
 html {
@@ -42,12 +68,18 @@ body {
 
 .header {
   box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-  padding: 10px 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   height: 80px;
+}
+
+.menu-icon {
+  font-size: 25px;
+  cursor: pointer;
+  order: -1;
 }
 
 .navbar {
@@ -69,14 +101,19 @@ body {
   transform: scale(1.09);
 }
 
-navbar a.active::before {
+.navbar a.active::before {
   content: "";
   position: absolute;
   left: 0;
   bottom: -8px;
-  width: 100%;
+  width: 0%;
   height: 0.2rem;
   background-color: var(--main-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a.active:hover::before {
+  width: 100%;
 }
 
 .logo {
@@ -117,14 +154,72 @@ section {
 .home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-top: 10%;
   padding: 70px 7% 2rem;
   text-align: center;
-
+  padding: 5% 7% 2rem;
   flex-direction: column;
-
-  padding: 3.3rem 0;
   font-family: Roboto, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos padrão para telas maiores */
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 1;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar a {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .menu-icon {
+    display: flex;
+    order: 0;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+  }
+
+  .options {
+    order: -1;
+  }
+
+  .idiomas {
+    display: none;
+  }
+
+  .dark {
+    display: none;
+  }
+
+  .header {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .subtitle {
@@ -169,7 +264,7 @@ section {
 }
 
 .home-content .social-media {
-  overflow: hidden; /* Adicionado para evitar que elementos fora do contêiner afetem a aparência */
+  overflow: hidden;
 }
 
 .home-content .social-media .social {
@@ -177,15 +272,25 @@ section {
   justify-content: center;
   align-items: center;
   width: 3rem;
-  height: 3rem; /* Adicionado para manter as dimensões fixas */
+  height: 3rem;
   border-radius: 60%;
   box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
   margin: 0 2.5rem 0 2.5rem;
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
-  filter: opacity(0.5);
+  filter: opacity(0.7);
   position: relative;
   z-index: 1;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
 }
 
 .home-content .social-media .social:hover {
@@ -210,14 +315,6 @@ section {
 }
 
 .btn:hover {
-  /* color: var(--white-color);
- background: linear-gradient(
-    90deg,
-    rgb(0, 240, 255, 1) 0%,
-    rgb(72, 197, 255) 50%,
-
-    rgba(0, 240, 255, 1) 100%
-  );*/
   transform: scale(1.1);
   transition: 0.5s ease-out;
   -webkit-background-clip: color;
@@ -232,7 +329,6 @@ section {
     0deg,
     rgb(0, 240, 255, 1) 0%,
     rgb(72, 197, 255) 50%,
-
     rgba(0, 240, 255, 1) 100%
   );
 }
