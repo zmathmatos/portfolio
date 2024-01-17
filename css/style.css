@@ -62,11 +62,6 @@
   transform: scale(1.2);
 }
 
-.menu-icon {
-  font-size: 20px;
-  order: -1;
-}
-
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -81,6 +76,7 @@ body {
 }
 
 .header {
+  background-color: #ffffff;
   box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
   padding: 10px;
   display: flex;
@@ -91,9 +87,7 @@ body {
 }
 
 .menu-icon {
-  font-size: 25px;
-  cursor: pointer;
-  order: -1;
+  display: none;
 }
 
 .navbar {
@@ -160,14 +154,14 @@ body {
 }
 
 section {
-  min-height: 100vh;
-  padding: 10rem 7% 2rem;
+  min-height: 95vh;
+  padding: 8rem 7% 2rem;
 }
 
 .home {
   display: flex;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 50px;
   padding: 70px 7% 2rem;
   text-align: center;
   padding: 5% 7% 2rem;
@@ -180,44 +174,85 @@ img {
   height: auto;
 }
 
-/* Estilos padrão para telas maiores */
+.sobre {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.sobre-content {
+  border: 2px solid #00cdf1;
+  padding: 20px;
+  border-radius: 10px; /* Adicione um raio de borda para suavizar as bordas */
+}
+
+/* Estilos padrão para telas menores */
 
 @media only screen and (max-width: 768px) {
   .navbar {
     display: none;
+  }
+
+  .navbar a {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .navbar.active {
+    background-color: rgb(
+      247,
+      246,
+      246
+    ); /* Ajuste o valor do alfa conforme necessário (0.0 a 1.0) */
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
     top: 80px;
     left: 0;
-    width: 100%;
-    background-color: var(--bg-color);
+    width: 50%;
     z-index: 1;
+    padding: 10px;
+    box-shadow: 0 0.5rem 0.5rem var(--shadow-color);
+    transition: background-color 0.3s ease;
+    height: 50%;
+    animation-duration: 0.5s;
   }
 
-  .navbar.active {
+  .menu-icon {
+    cursor: pointer;
     display: flex;
-  }
-
-  .navbar a {
-    margin-right: 0;
-    margin-bottom: 10px;
+    font-size: 3.7rem;
+    order: -1;
   }
 
   .logo {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     font-size: 2.5rem;
   }
+
   .options {
-    padding: 10px;
+    display: flex;
+    padding: 5px;
   }
 
   .header {
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
     align-items: center;
     display: flex;
     justify-content: space-around;
+    z-index: 1000;
+  }
+
+  .home-content {
+    padding-top: 40%; /* Compensa a altura do cabeçalho fixo */
+    margin: 0;
   }
 }
 
@@ -252,6 +287,16 @@ img {
   font-size: 1.6rem;
 }
 
+.sobre-content h3 {
+  font-size: 2.9rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.sobre-content p {
+  font-size: 1.6rem;
+}
+
 .social-media {
   display: flex;
   align-items: center;
@@ -260,6 +305,12 @@ img {
   background-color: #f3f2f2;
   border-radius: 10rem;
   margin: 2rem 0;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra interna */
+  transition: box-shadow 0.3s ease-in-out; /* Adiciona transição na sombra */
+}
+
+.social-media:hover {
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra interna no hover */
 }
 
 .home-content .social-media {
@@ -282,16 +333,6 @@ img {
   z-index: 1;
 }
 
-@keyframes moveUpDown {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-1rem);
-  }
-}
-
 .home-content .social-media .social:hover {
   transform: scale(1.2);
   filter: none;
@@ -304,7 +345,6 @@ img {
   padding: 1.2rem 2.8rem;
   background: var(--main-color);
   border-radius: 1rem;
-
   font-size: 1.6rem;
   color: var(--white-color);
   letter-spacing: 0.1rem;
@@ -318,20 +358,16 @@ img {
   position: absolute;
   top: -1px;
   left: -1px;
-  right: -1.2px;
+  right: -1px;
   bottom: -1px;
   z-index: -1;
-  border-radius: 1rem;
-  opacity: 7;
 }
 
 .btn:hover {
   transform: scale(1);
   transition: 0.5s ease-out;
-  -webkit-background-clip: color;
-  background-clip: color;
-  -webkit-text-fill-color: white;
   background-size: 200% 100%;
+  background-color: transparent;
 }
 
 .bg-btn-gradient {
