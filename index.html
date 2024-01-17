@@ -8,8 +8,8 @@
     <title>Document</title>
 
     <!-- box icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -32,35 +32,23 @@
         </nav>
 
         <div class="options">
-            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu-icon" onclick="toggleMenu()"><i class="bx bxs-menu"></i></div>
             <p class="dark"><i class='bx bxs-moon'></i></p>
-            <img class="idiomas" src="./assets/portugues.png" />
+            <img class="idiomas" alt="alterar idioma" src="./assets/ingles.png" />
 
         </div>
     </header>
-    <!--
-        <div class="box-menu">
-            <a id="menuButton"> Menu
-                <i class='bx bx-menu' style="font-size: 25px;"></i>
-            </a>
-        </div>
-
- 
-    <div class="modal-menu">
-        <ul id="menuList">
-            <li><a href="#">Opção 1</a></li>
-            <li><a href="#">Opção 2</a></li>
-            <li><a href="#">Opção 3</a></li>
-        </ul>
-
-    </div>-->
 
     <!-- home section -->
     <section class="home">
         <div class="home-content">
-            <h3>Hi, I'm</h3>
-            <h1>Lorem.</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, suscipit necessitatibus a odio vitae
+            <h3 class="animate__animated animate__fadeInDown">Hi, I'm</h3>
+            <h3 style="font-size: 5rem; font-weight: 500; margin-top: 25px; margin-bottom: 30px;"
+                class="animate__animated animate__fadeInDown">Lorem.</h3>
+            <p style="color: #979797;" class="animate__animated animate__fadeIn">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Nemo,
+                suscipit necessitatibus a
+                odio vitae
                 quibusdam dicta blanditiis temporibus tempora officiis eius velit magni beatae voluptatum enim
                 recusandae earum rerum commodi.</p>
             <div class="social-media">
@@ -72,8 +60,10 @@
                 <div id="vazio"></div>
             </div>
 
+            <div class="bg-btn-gradient">
+                <button href="#" class="btn">Download </button>
+            </div>
 
-            <button href="#" class="btn">Download </button>
 
 
         </div>
