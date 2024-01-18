@@ -13,29 +13,59 @@
 
 :root {
   --bg-color: #ffffff;
+  --bg-color-dark: #131313;
   --text-color: #333;
   --main-color: #242424;
   --gradient-color: #00b7ff;
   --white-color: #fdfdfd;
   --shadow-color: rgba(0, 0, 0, 0.2);
+  --header-bg-color-light: #ffffff;
+  --header-text-color-light: var(--main-color);
+  --header-bg-color-dark: var(--main-color);
+  --header-text-color-dark: #fdfdfd;
+  --options-bg-color-light: #f3f2f2;
+  --options-bg-color-dark: #414141;
 }
 
-:root {
-  --bg-color-dark: #131313;
-  --text-color-dark: #fdfdfd;
-  --shadow-color: rgb(212, 212, 212);
-}
-
-.dark {
+.moon-icon {
   justify-content: center;
   align-items: center;
   display: flex;
   font-size: 30px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease; /* Adicione 'color' aqui */
 }
 
-.dark:hover {
+body.dark-mode .moon-icon {
+  color: var(--moon-icon-color-light); /* Adicione esta linha */
+}
+
+.moon-icon:hover {
+  transform: scale(1.3);
+  color: #fdc306;
+}
+
+body.dark-mode .moon-icon:hover {
+  color: #fdc306; /* Mantenha a cor de destaque no modo escuro */
+}
+.dark-mode {
+  --bg-color: #131313;
+  --text-color: #fdfdfd;
+  --header-color: var(--main-color);
+  --shadow-color: rgb(212, 212, 212);
+}
+
+body.dark-mode {
+  background: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.header.dark-mode {
+  background-color: var(--header-bg-color-dark);
+  color: var(--header-text-color-dark);
+}
+
+.moon-icon:hover {
   transform: scale(1.3);
   color: #fdc306;
 }
@@ -45,8 +75,13 @@
   align-items: center;
   justify-content: center;
   padding: 0.9rem 2.2rem;
-  background-color: #f3f2f2;
+  background-color: var(--options-bg-color-light); /* Adicione esta linha */
   border-radius: 10rem;
+  transition: background-color 0.3s ease-in-out; /* Adicione esta linha */
+}
+
+body.dark-mode .options {
+  background-color: var(--options-bg-color-dark); /* Adicione esta linha */
 }
 
 .idiomas {
@@ -76,7 +111,8 @@ body {
 }
 
 .header {
-  background-color: #ffffff;
+  background-color: var(--header-bg-color-light);
+  color: var(--header-text-color-light);
   box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
   padding: 10px;
   display: flex;
@@ -116,7 +152,7 @@ body {
   bottom: -8px;
   width: 0%;
   height: 0.2rem;
-  background-color: var(--main-color);
+  background-color: var(--gradient-color);
   transition: width 0.3s ease-in-out;
 }
 
@@ -183,10 +219,13 @@ img {
 .sobre-content {
   border: 2px solid #00cdf1;
   padding: 20px;
-  border-radius: 10px; /* Adicione um raio de borda para suavizar as bordas */
+  border-radius: 10px;
+  transition: box-shadow 0.5s ease-in-out;
 }
 
-/* Estilos padrão para telas menores */
+.sobre-content:hover {
+  box-shadow: 0 0 3rem 2rem rgba(0, 183, 255, 0.3); /* Ajusta a opacidade aqui */
+}
 
 @media only screen and (max-width: 768px) {
   .navbar {
@@ -199,11 +238,7 @@ img {
   }
 
   .navbar.active {
-    background-color: rgb(
-      247,
-      246,
-      246
-    ); /* Ajuste o valor do alfa conforme necessário (0.0 a 1.0) */
+    background-color: rgb(247, 246, 246);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -251,7 +286,7 @@ img {
   }
 
   .home-content {
-    padding-top: 40%; /* Compensa a altura do cabeçalho fixo */
+    padding-top: 40%;
     margin: 0;
   }
 }
@@ -272,10 +307,13 @@ img {
   max-width: 44rem;
 }
 
-.home-content h3 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 0.3;
+.home-content h3,
+.sobre-content h3 {
+  color: var(--text-color); /* Adicione esta linha */
+}
+body.dark-mode .home-content h3,
+body.dark-mode .sobre-content h3 {
+  color: var(--white-color); /* Adicione esta linha */
 }
 
 .home-content h1 {
@@ -305,12 +343,12 @@ img {
   background-color: #f3f2f2;
   border-radius: 10rem;
   margin: 2rem 0;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra interna */
-  transition: box-shadow 0.3s ease-in-out; /* Adiciona transição na sombra */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .social-media:hover {
-  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra interna no hover */
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2);
 }
 
 .home-content .social-media {
@@ -382,7 +420,7 @@ img {
   padding: 3px;
   border-radius: 1rem;
   transition: transform 0.8s ease;
-  box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
+  box-shadow: 0 0.2rem 0.5rem var(--gradient-color);
   animation: gradient 3s linear infinite;
   background-size: 200% 100%;
 }

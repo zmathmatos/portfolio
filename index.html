@@ -34,7 +34,10 @@
 
         <div class="options">
             <div class="menu-icon" onclick="toggleMenu()"><i class="bx bxs-menu"></i></div>
-            <p class="dark"><i class='bx bxs-moon'></i></p>
+            <p class="moon-icon" onclick="toggleDarkMode()">
+                <i class="bx bx-moon" id="moon-icon"></i>
+                <i class="bx bx-sun" id="sun-icon" style="display: none;"></i>
+            </p>
             <img class="idiomas" alt="Alterar idioma" src="./assets/ingles.png" />
         </div>
     </header>
@@ -42,9 +45,11 @@
     <!-- Home Section -->
     <section class="home" id="home">
         <div class="home-content">
-            <h3 class="animate__animated animate__fadeInDown">Hi, I'm</h3>
-            <h3 style="font-size: 5rem; font-weight: 500; margin-top: 25px; margin-bottom: 30px;"
-                class="animate__animated animate__fadeInDown">Lorem.</h3>
+            <h3 class="animate__animated animate__fadeInDown" style="font-size: 5rem; font-weight: 500; margin: 0px;">
+                HI, I'M</h3>
+            <h3 style=" font-size: 5rem; font-weight: 500; margin-bottom: 30px; line-height: 30px;"
+                class="animate__animated animate__fadeInDown">
+                MATHEUS MATOS.</h3>
             <p style="color: #979797;" class="animate__animated animate__fadeIn">Lorem ipsum dolor sit amet consectetur
                 adipisicing elit. Nemo,
                 suscipit necessitatibus a
