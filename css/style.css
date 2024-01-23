@@ -12,12 +12,12 @@
 }
 
 :root {
-  --bg-color: #131313;
+  --bg-color: #242424;
   --text-color: #ffffff;
   --main-color: #242424;
   --gradient-color: #00b7ff;
   --shadow-color: rgba(0, 0, 0, 0.2);
-  --header-bg-color: #363636;
+  --header-bg-color: #292929;
   --header-text-color: #fdfdfd;
   --options-bg-color: #f3f2f2;
 }
@@ -49,8 +49,6 @@ body {
   cursor: pointer;
   width: 3rem;
   top: 10px;
-  margin-left: 10px;
-  height: 3rem;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -69,6 +67,7 @@ body {
   box-sizing: border-box;
   font-family: "Poppins", "sans-serif";
   overflow-x: hidden;
+  font-size: 1.6rem;
 }
 
 .header {
@@ -106,19 +105,21 @@ body {
   transform: scale(1.09);
 }
 
-.navbar a.active::before {
+.navbar a::before {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -8px;
+  bottom: -2px;
   width: 0%;
   height: 0.2rem;
   background-color: var(--gradient-color);
   transition: width 0.3s ease-in-out;
 }
 
-.navbar a.active:hover::before {
+.navbar a.active::before,
+.navbar a:hover::before {
   width: 100%;
+  transform: scale(1.09);
 }
 
 .logo {
@@ -151,14 +152,17 @@ body {
 }
 
 section {
-  min-height: 95vh;
-  padding: 8rem 7% 2rem;
+  min-height: 100vh;
+  padding: 10rem 7% 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .home {
   display: flex;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 70px 7% 2rem;
   text-align: center;
   padding: 5% 7% 2rem;
@@ -174,7 +178,7 @@ img {
 .sobre {
   display: flex;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 100%;
 }
 
 .sobre-content {
@@ -188,18 +192,46 @@ img {
   box-shadow: 0 0 3rem 2rem rgba(0, 110, 255, 0.3); /* Ajusta a opacidade aqui */
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
+  body.navbar-active {
+    padding-top: 80px; /* ou o valor desejado para ajustar o espaço do navbar */
+  }
+
+  html {
+    font-size: 50%; /* ou o valor desejado para telas menores */
+  }
+
   .navbar {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
     display: none;
   }
 
   .navbar a {
-    font-size: 15px;
-    padding: 10px;
+    font-size: 14px; /* ou o valor desejado para telas menores */
+    margin-top: 5rem;
+    margin-right: 2rem;
   }
 
+  section {
+    min-height: 100vh;
+    padding: 20rem 7% 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .home-content h1 {
+    font-size: 3.6rem; /* ou o valor desejado para telas menores */
+  }
+
+  .home-content p,
+  .sobre-content p {
+    font-size: 1.4rem; /* ou o valor desejado para telas menores */
+  }
   .navbar.active {
-    background-color: rgb(247, 246, 246);
+    transform: translateX(0);
+    background-color: rgb(32, 32, 32);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -226,14 +258,14 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
   .header {
     padding: 0%;
     margin: 0%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #242424;
     position: fixed;
     align-items: center;
     display: flex;
@@ -292,47 +324,37 @@ body .sobre-content h3 {
   font-size: 1.6rem;
 }
 
-.social-box {
+.home-content .social-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2.2rem;
   background-color: #f3f2f2;
   border-radius: 10rem;
   margin: 2rem 0;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.5s ease-in-out; /* Adiciona uma transição suave para box-shadow */
+  transition: box-shadow 0.5s ease-in-out;
+  margin-top: 50px;
 }
 
-.social-box:hover {
-  box-shadow: 0 0 3rem 2rem rgba(0, 110, 255, 0.3);
-}
-
-.home-content .social-box {
-  overflow: hidden;
-}
-
-.home-content .social-box .social {
-  display: inline-flex;
+.home-content .social-box .social-icon {
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 3rem;
-  height: 3rem;
   border-radius: 60%;
   box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
-  margin: 0 2.5rem 0 2.5rem;
+  margin: 10px;
+  margin-right: 3rem; /* Ajuste o espaçamento entre os ícones */
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
   position: relative;
   z-index: 1;
+  flex: 1;
 }
 
-.home-content .social-box .social:hover {
+.home-content .social-box .social-icon:hover {
   transform: scale(1.2);
-  filter: none;
   z-index: 2;
 }
-
 .btn {
   position: relative;
   display: inline-block;
@@ -379,6 +401,7 @@ body .sobre-content h3 {
   box-shadow: 0 0.2rem 0.5rem var(--gradient-color);
   animation: gradient 3s linear infinite;
   background-size: 200% 100%;
+  margin: 20px;
 }
 
 .bg-btn-gradient:hover {
