@@ -3,22 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     if (window.scrollY > 500) {
-      timeline?.classList.add("active");
+      timeline && timeline.classList.add("active");
     } else {
-      timeline?.classList.remove("active");
+      timeline && timeline.classList.remove("active");
     }
 
     handleScroll();
   });
 
   function handleScroll() {
-    const timelineItems =
-      document.querySelectorAll<HTMLElement>(".timeline-item");
+    const timelineItems = document.querySelectorAll(".timeline-item");
 
     timelineItems.forEach((item) => {
       const targetId = item.getAttribute("data-target");
-      const targetSection = document.getElementById(targetId!);
-      const rect = targetSection?.getBoundingClientRect();
+      const targetSection = document.getElementById(targetId);
+
+      const rect = targetSection && targetSection.getBoundingClientRect();
 
       if (
         rect &&
@@ -32,16 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  const timelineItems =
-    document.querySelectorAll<HTMLElement>(".timeline-item");
+  const timelineItems = document.querySelectorAll(".timeline-item");
 
   timelineItems.forEach((item) => {
     item.addEventListener("click", () => {
       const targetId = item.getAttribute("data-target");
-      const targetSection = document.getElementById(targetId!);
+      const targetSection = document.getElementById(targetId);
 
       window.scrollTo({
-        top: targetSection?.offsetTop || 0,
+        top: targetSection ? targetSection.offsetTop : 0,
         behavior: "smooth",
       });
     });
@@ -51,11 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleMenu() {
   const navbar = document.querySelector(".navbar");
 
-  navbar?.classList.toggle("active");
+  if (navbar) {
+    navbar.classList.toggle("active");
 
-  if (navbar?.classList.contains("active")) {
-    navbar.classList.add("animate__animated", "animate__fadeInLeft");
-  } else {
-    navbar?.classList.remove("animate__animated", "animate__fadeInLeft");
+    if (navbar.classList.contains("active")) {
+      navbar.classList.add("animate__animated", "animate__fadeInLeft");
+    } else {
+      navbar.classList.remove("animate__animated", "animate__fadeInLeft");
+    }
   }
 }
