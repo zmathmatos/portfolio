@@ -24,32 +24,66 @@
 
         </div>
     </header>
-
+    <div class="overlay_sides overlay_sides_right">
+        <nav class="nav__wrapper">
+            <ul id="side_nav">
+                <li data-menuanchor="home" class="active"><a href="#home" title="home">00</a></li>
+                <li data-menuanchor="sobre"><a href="#sobre" title="sobre">01</a></li>
+                <li data-menuanchor="habilidades"><a href="#habilidades" title="habilidades">02</a></li>
+                <li data-menuanchor="portfolio"><a href="#portfolio" title="portfolio">03</a></li>
+                <li data-menuanchor="contato"><a href="#contato" title="contato">04</a></li>
+                <div class="line"></div>
+            </ul>
+        </nav>
+        <div>
+            <div class="btn_down"><span>Scroll Down</span><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="aliceblue"></path>
+                </svg></div>
+        </div>
+    </div>
     <!-- Home Section -->
-    <section id="home">
+    <section id="home" class="section">
         <div class="home-content">
-            <div style="display: flex; justify-content: space-between;">
-                <div class="animate__animated animate__fadeIn"
-                    style="flex: 1; margin-top: 10%; animation-duration: 5s;">
-                    <p>Hello, World! Meu nome é
-                        <span style="font-size: 15px; font-weight: bold;">Matheus Matos</span> e sou
-                        </h3>
-                    <h1 class="typing-demo">
-                        Desenvolvedor <span style="color: rgb(0, 183, 255);">FullStack.</span></h1>
-
-                    <div style="margin-top: 20px; text-align: left;">
-                        <p>Lorem ipsum dolor sit amet consectetur
-
-                        </p>
-                    </div>
-
-                </div>
+            <div class="animate__animated animate__fadeIn">
+                <p>Hello, World! Meu nome é
+                    <span>Matheus Matos</span> e sou
+                </p>
+                <p class="typing-demo">
+                    Desenvolvedor <span style="color: rgb(0, 183, 255);">FullStack.</span>
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur
             </div>
         </div>
+
+
     </section>
 
 
-    <section id="sobre">
+    <section id="sobre" class="section">
+        <div class="sobre-content">
+            <h3>
+                What is Ipsum?</h3>
+            <p style="color: #979797;">
+                Lorem ipsum dolor sit amet consectetur
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but
+                also the
+                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                the
+                release of
+                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                Aldus PageMaker including
+                versions of Lorem Ipsum.</p>
+        </div>
+
+
+    </section>
+    <section id="habilidades" class="section">
         <div class="sobre-content">
             <h3>
                 What is Ipsum?</h3>
@@ -69,7 +103,8 @@
                 versions of Lorem Ipsum.</p>
         </div>
     </section>
-    <section class="servicos" id="servicos">
+
+    <section id="portfolio" class="section">
         <div class="sobre-content">
             <h3>
                 What is Ipsum?</h3>
@@ -89,7 +124,27 @@
                 versions of Lorem Ipsum.</p>
         </div>
     </section>
-    <section class="portifolio" id="portifolio"></section>
+
+    <section id="contato" class="section">
+        <div class="sobre-content">
+            <h3>
+                What is Ipsum?</h3>
+            <p style="color: #979797;">
+                Lorem ipsum dolor sit amet consectetur
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but
+                also the
+                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                the
+                release of
+                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                Aldus PageMaker including
+                versions of Lorem Ipsum.</p>
+        </div>
+    </section>
 
     <nav>
         <ul>
@@ -99,7 +154,7 @@
         </ul>
     </nav>
     <!-- FAB Vertical para MOBILE-->
-    <div class="fab fabVertical active" style="position: fixed;">
+    <div class="fab fabVertical">
         <div class="fabNav fabNav--left">
             <a href="#" class="fabItem ic-facebook">
                 <i class="fa-brands fa-facebook-f"></i>
