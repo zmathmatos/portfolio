@@ -1,7 +1,6 @@
-// Get all menu from document
+
 document.querySelectorAll('.fabTrigger').forEach(OpenMenu);
 
-// Menu Open and Close function
 function OpenMenu(active) {
   if(active.classList.contains('fabTrigger') === true){
     active.addEventListener('click', function (e) {
@@ -12,44 +11,43 @@ function OpenMenu(active) {
         this.parentElement.classList.remove('active');
 
       } else {
-        // Close the opend dropdown
         closeMenu();
-        // add the open and active class(Opening the DropDown)
         this.parentElement.classList.add('active');
       }
     });
   }
 };
 
-// Close the openend Menu
 function closeMenu() { 
-  // remove the open and active class from other opened Moenu (Closing the opend Menu)
   document.querySelectorAll('.fab').forEach(function (container) { 
     container.classList.remove('active')
   });
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("#side_nav a");
+let logo = document.getElementById('animacao-logo')
+const height = logo.clientHeight
+const width = logo.clientWidth
 
-  window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (pageYOffset >= sectionTop - sectionHeight / 3) {
-              current = section.getAttribute("id");
-          }
-      });
+logo.addEventListener('mousemove', handleMove)
 
-      navLinks.forEach(link => {
-          link.parentElement.classList.remove("active");
-          if (link.getAttribute("href").slice(1) === current) {
-              link.parentElement.classList.add("active");
-          }
-      });
-  });
-});
-  
+function handleMove(e) {
+  const xVal = e.layerX
+  const yVal = e.layerY
+  const yRotation = 20 * ((xVal - logo.clientWidth / 2) / logo.clientWidth)
+  const xRotation = -20 * ((yVal - height / 2) / height)
+  const string = 'perspective(500px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)'
+  logo.style.transform = string
+}
+
+logo.addEventListener('mouseout', function() {
+  logo.style.transform = 'perspective(500px) scale(1) rotateX(0) rotateY(0)'
+})
+
+logo.addEventListener('mousedown', function() {
+  logo.style.transform = 'perspective(500px) scale(0.9) rotateX(0) rotateY(0)'
+})
+
+logo.addEventListener('mouseup', function() {
+  logo.style.transform = 'perspective(500px) scale(1.1) rotateX(0) rotateY(0)'
+})
