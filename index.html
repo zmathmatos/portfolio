@@ -30,7 +30,7 @@
                 <li data-menuanchor="home" class="active"><a href="#home" title="home">00</a></li>
                 <li data-menuanchor="sobre" class=""><a href="#sobre" title="sobre">01</a></li>
                 <li data-menuanchor="habilidades" class=""><a href="#habilidades" title="habilidades">02</a></li>
-                <li data-menuanchor="portfolio" class=""><a href="#portfolio" title="portfolio">03</a></li>
+                <li data-menuanchor="projetos" class=""><a href="#projetos" title="projetos">03</a></li>
                 <li data-menuanchor="contato" class=""><a href="#contato" title="contato">04</a></li>
                 <div class="line"></div>
             </ul>
@@ -44,7 +44,8 @@
     </div>
 
     <!-- Home Section -->
-    <section id="home" class="section">
+    <section id="home" class="section-home">
+
         <div class="home-content">
             <div class="animate__animated animate__fadeIn">
                 <p style="font-size: 1.5rem;">Hello, World! Meu nome é
@@ -55,33 +56,50 @@
                 </p>
                 <p style="font-size: 1.3rem">Front-End, Back-End e UX/UI Design.
             </div>
-
+        </div>
+        <!-- <img src="./assets/newconnected-api-development.png" class="background-image" alt=""> -->
+    </section>
+    <!-- FAB Vertical para MOBILE-->
+    <div class="fab fabVertical">
+        <div class="fabNav fabNav--left">
+            <a href="#" class="fabItem ic-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="fabItem ic-ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="fabItem ic-tw">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
+        <div class="fabTrigger">
+            <a href="#">
+                <span class="icon"></span>
+            </a>
         </div>
 
-    </section>
-
+    </div>
 
     <section id="sobre" class="section-sobre">
-        <span style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0;">Sobre
+        <span
+            style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0; align-items: center;">Sobre
             mim</span>
-        <div class="card-sobre">
-            <div style="display: flex; position: relative;">
-                <p style="text-align: start;">
-                    Lorem ipsum dolor sit amet consectetur
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer standard dummy text ever since the 1500s, when an unknown
-                    printer Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown
-                    printer standard dummy text ever since the 1500s, when an unknown printer
-                </p>
-                <!-- <img src="./assets/foto.jpg" alt="Foto" class="foto"> -->
-            </div>
+        <div class="card-sobre" id="animacao-sobre">
+            <p>
+                Lorem ipsum dolor sit amet consectetur
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                printer standard dummy text ever since the 1500s, when an unknown
+                printer Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                unknown
+                printer standard dummy text ever since the 1500s, when an unknown printer
+            </p>
         </div>
     </section>
 
 
-    <section class="section-habilidades">
+
+    <section class="section-habilidades" id="habilidades">
         <div class="habilidades-content">
             <span
                 style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0;">Habilidades</span>
@@ -120,25 +138,26 @@
 
     </section>
 
-    <section id="portfolio" class="section">
-        <div class="sobre-content">
-            <h3>
-                What is Ipsum?</h3>
-            <p style="color: #979797;">
-                Lorem ipsum dolor sit amet consectetur
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a
-                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                but
-                also the
-                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including
-                versions of Lorem Ipsum.</p>
+    <section id="projetos" class="section-projetos">
+        <span
+            style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0;">Projetos</span>
+        <div id="zoom-projetos">
+            <ul class="projetos">
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+            </ul>
         </div>
+
     </section>
 
     <section id="contato" class="section">
@@ -162,37 +181,9 @@
         </div>
     </section>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="#home" title="home">Home</a>
-            </li>
-        </ul>
-    </nav>
-    <!-- FAB Vertical para MOBILE-->
-    <div class="fab fabVertical">
-        <div class="fabNav fabNav--left">
-            <a href="#" class="fabItem ic-facebook">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="#" class="fabItem ic-ig">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#" class="fabItem ic-tw">
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-        </div>
-        <div class="fabTrigger">
-            <a href="#">
-                <span class="icon"></span>
-            </a>
-        </div>
-
-    </div>
-    </div>
 
     <!-- Custom TS -->
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
 
 
 </body>

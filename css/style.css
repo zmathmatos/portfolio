@@ -29,7 +29,6 @@ body {
 }
 
 .header {
-  /* box-shadow: 0px 7px 11px rgba(0,0,0,.3); */
   position: absolute;
   top: 20px;
   width: 100%;
@@ -42,7 +41,7 @@ body {
 
 }
 
-.section {
+.section-home {
   min-height: 100vh;
   padding: 5rem 4% 2rem;
   max-width: 100%;
@@ -53,18 +52,46 @@ body {
 
 .section-sobre {
   min-height: 100vh;
-  padding: 7rem 4% 2rem;
+  padding: 1rem 9% 2rem;
   max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
 }
 
+.sobre-content {
+  padding: 50px;
+  text-align: center;
+
+}
+
+
+.section-habilidades {
+  min-height: 115vh;
+  padding: 1rem 9% 2rem;
+  max-width: 100%;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section-projetos {
+  min-height: 100vh;
+  padding: 1rem 9% 2rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+}
 
 .section-contato {
   min-height: 100vh;
   padding: 5rem 4% 2rem;
   max-width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 
@@ -327,6 +354,15 @@ body {
 }
 
 
+
+#animacao-sobre {
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+#animacao-sobre:hover {
+  cursor: pointer;
+}
+
 .sobre {
   display: flex;
   align-items: center;
@@ -334,24 +370,19 @@ body {
 }
 
 
-
 .card-sobre {
-  border: 2px solid #00cdf1;
+  border: 2px solid #474747;
   padding: 50px;
   border-radius: 3rem;
-  margin: 40px 82px 0px 49px;
-  transition: box-shadow 0.5s ease-in-out;
+  margin-top: 30px;
+  transition: box-shadow 0.5s ease-in-out, border 0.5s ease-in-out; 
 }
 
-.section-habilidades {
-  min-height: 100vh;
-  padding: 1rem 9% 2rem;
-  max-width: 100%;
-  align-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.card-sobre:hover, .card-sobre.active {
+  box-shadow: 0 0 86px 6px rgb(7, 91, 146);
+  border: 2px solid #00cdf1;
 }
+
 
 .habilidades-content {
   padding: 50px;
@@ -380,6 +411,112 @@ body {
   transition: transform 0.4s ease-in-out;
 }
 
+.projetos {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+  padding: 2.2rem;
+}
+
+.projetos-card {
+cursor: pointer;
+  position: relative;
+  width: 20rem;
+  height: 25rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin: 3px;
+  transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out; 
+
+}
+
+.projetos-card:hover, .projetos-cardactive {
+  box-shadow: 0 0 86px 6px rgb(7, 91, 146);
+  border: 3px solid #00ffff;
+}
+
+.projetos-layer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, .5), #191b19);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 4rem;
+  transform: translateY(100%);
+  transition: .1s ease-out;
+  
+}
+
+.projetos-card:hover .projetos-layer{
+  transition: 0.5s ease-out;
+  transform: translateY(50%);
+}
+
+.background-projetos-card {
+  background-color: #f3f2f2;
+  position: absolute;
+    width: 20rem;
+    height: 25rem;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 1s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+#zoom-projetos {
+  animation: projetos linear both;
+  animation-timeline: view(block);
+  animation-range: cover 0% cover 100%;
+}
+
+@keyframes projetos {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+#acender  {
+  animation: reveal linear both;
+  animation-timeline: view(block);
+  animation-range: cover 50% cover 100%;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+
+  }
+  15% {
+    opacity: 1;
+
+  }
+  75% {
+    opacity: 1;
+   
+  }
+  100% {
+    opacity: 0;
+ 
+  }
+}
+
 
 .foto {
   width: 150%;
@@ -400,12 +537,6 @@ body {
   box-shadow: 0px 0px 30px rgba(0,0,0, 0.6);
   cursor: pointer;
 }
-
-
-.card-sobre:hover {
-  box-shadow: 0 0 86px 6px rgb(7, 91, 146);
-}
-
 
 
 .home-content .social-box {
@@ -490,262 +621,53 @@ body {
   animation-duration: 1.5s;
 }
 
+/* Estilos para dispositivos móveis */
 
-/****** MOBILE ******/
 @media screen and (max-width: 767px) {
-  .btn {
-    display: none;
+  .header {
+    padding: 20px; /* Reduzir o padding do cabeçalho para dispositivos móveis */
   }
-
-  .bg-btn-gradient{
-    display: none;
-  }
-
-  .header{
+  
+  .html{
     display: flex;
     justify-content: center;
   }
+  .btn {
+    display: none;
+  }
+  .section-home,
+  .section-sobre,
+  .section-habilidades,
+  .section-contato {
+    padding: 2px;
+
+  }
 
   .logo {
-    display: flex;
-    font-size: 30px;
-    font-weight: bolder;
-    margin: 0px;
+    margin-left: 10px; /* Reduzir a margem do logotipo para dispositivos móveis */
+    font-size: 2rem; /* Reduzir o tamanho do logotipo para dispositivos móveis */
   }
 
-  .section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    min-height: 100vh;
-    padding: 3rem 2%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  .social-box {
+    margin-top: 20px; /* Ajustar margem superior do bloco de ícones sociais para dispositivos móveis */
   }
 
-  body {
-    font-size: 1rem;
-  }
-  
-  .fab {
-    position: fixed;
-    align-items: center;
-    justify-content: flex-end;
-    transform-origin: center;
-    transition: .25s;
-    &.active {
-      .fabTrigger {
-        transform: scale(1);
-        .icon {
-          background: transparent;
-          transition: background 0.3s ease;
-          &,
-          &:before,
-          &:after {
-            height: 3px;
-          }
-          &:before,
-          &:after {
-            width: 20px;
-            transform-origin: 50% 50%;
-            transition: all 100ms ease, 
-              width 100ms 100ms ease, 
-              transform 300ms 200ms cubic-bezier(0.28, 0.55, 0.385, 1.65);
-          }
-          &:before {
-            left: 50%;
-            transform: translateX(-50%) rotate(45deg);
-          }
-          &:after {
-            right: 50%;
-            transform: translateX(50%) rotate(-45deg);
-          }
-        }
-      }
-      .fabNav {
-        a {
-          opacity: 1;
-          visibility: visible;
-          transition: .35s cubic-bezier(.4,2.08,.55,1);
-        }
-      }
-      
-    }
-    .fabTrigger {
-      position: relative;
-      z-index: 1;
-      width: 80px;
-      height: 80px;
-      color: #FFF;
-      cursor: pointer;
-      outline: none;
-      border: 0;
-      border-radius: 100px;
-      background: #00aeff;
-      transform: scale(0.675);
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(108, 46, 185, 0.2);
-      transition: .35s cubic-bezier(.4,2.08,.55,1);
-      .icon {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: background 0.3s ease;
-        &,
-        &:before,
-        &:after {
-          position: absolute;
-          display: block;
-          background: #000;
-          width: 6px;
-          height: 6px;
-          border-radius: 10px;
-        }
-        &:before,
-        &:after {
-          content: '';
-          transition: all 100ms ease,
-            right 100ms 100ms ease,
-            left 100ms 100ms ease;
-        }
-        &:before {
-          left: -11px;
-          transform: translateX(-50%);
-        }
-        &:after {
-          right: -11px;
-          transform: translateX(50%);
-        }
-  
-      }
-    }
-    .fabNav {
-      display: flex;
-      align-items: center;
-      a {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 12px;
-        width: 40px;
-        height: 40px;
-        font-family: 'Noto Sans', sans-serif;
-        outline: none;
-        border: 0;
-        text-decoration: none;
-        border-radius: 100px;
-        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(108, 46, 185, 0.2);
-        opacity: 0.0001;
-        visibility: hidden;
-        will-change: transform;
-        transition: .35s cubic-bezier(.4,2.08,.55,1);
-        &:before {
-          content: "";
-          position: absolute;
-          z-index: -1;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 100%;
-          background-color: #FFF;
-          transition: .25s;
-        }
-        i {
-          color: #000;
-          transition: .25s;
-        }
-        &:hover {
-          &:before {
-            background-color: #000;
-          }
-          i {
-            color: #00aeff;
-          }
-          .fabTooltip {
-            opacity: 1;
-            visibility: visible;
-          }
-        }
-      }
-    }
-    .fabTooltip {
-      position: absolute;
-      z-index: -2;
-      padding: 5px;
-      color: #00aeff;
-      font-size: 12px;
-      border-radius: 5px;
-      background: rgba(#000, 0.8);
-      opacity: 0;
-      visibility: hidden;
-      cursor: default;
-      pointer-events: none;
-      transition: .5s;
-    }
-  }
-  
-  .fabVertical {
-    flex-direction: column;
-    top: 80%;
-    right: 15px;
-    transform: translate(0, -50%);
-    &.active {
-      .fabNav {
-        &.fabNav--left {
-          a {
-            left: 0;
-            transform: scale(1) translateX(0);
-          }
-        }
-        &.fabNav--right {
-          a {
-            right: 0;
-            transform: scale(1) translateX(0);
-          }
-        }
-      }
-    }
-    .fabTrigger {
-      margin: 12px 0;
-    }
-    .fabNav {
-      flex-direction: column;
-      a {
-        margin: 12px 0;
-        &:hover {
-          .fabTooltip {
-            right: calc(100% + 10px);
-            transform: translate(0, -50%) scale(1);
-          }
-        }
-      }
-      &.fabNav--left {
-        a {
-          left: 0;
-          transform: scale(0.8) translateY(10px);
-          &:nth-child(1) {
-            transition-delay: 0.3s;
-          }
-          &:nth-child(2) {
-            transition-delay: 0.2s;
-          }
-          &:nth-child(3) {
-            transition-delay: 0.1s;
-          }
-        }
-      }     
-    }
-    .fabTooltip {
-      top: 50%;
-      right: 0;
-      transform-origin: center right;
-      transform: translate(0, -50%) scale(0);
-    }
+  .social-box .social-icon {
+    margin-right: 1.5rem; /* Reduzir o espaçamento entre os ícones sociais para dispositivos móveis */
   }
 
+  .btn {
+    font-size: 0.9rem; /* Reduzir o tamanho do texto dos botões para dispositivos móveis */
+    padding: 0.8rem 1.5rem; /* Reduzir o padding dos botões para dispositivos móveis */
+  }
+
+  .computer-graphic {
+    margin-right: 0; /* Remover margem direita do elemento gráfico para dispositivos móveis */
+  }
+
+  .computer-graphic svg {
+    width: 100%; /* Definir largura do SVG como 100% para dispositivos móveis */
+  }
 }
 
 
@@ -773,14 +695,3 @@ body {
  
 }
 
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-300px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
-}
