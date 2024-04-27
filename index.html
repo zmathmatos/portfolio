@@ -1,64 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <!-- Box icons -->
     <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 
 <body>
     <!-- Header Design -->
     <header class="header">
-        <div class="logo">
+        <div class="logo" id="animacao-logo">
             <a>matheusmatos.</a>
         </div>
-        <div class="right-icons">
-            <div class="idiomas">
-                <img alt="Alterar idioma" src="./assets/ingles.png" />
-            </div>
-            <div class="bg-btn-gradient">
-                <button href="#" class="btn">Contato</button>
-            </div>
+        <div class="bg-btn-gradient">
+            <button class="btn">Contato</button>
+        </div>
+
         </div>
     </header>
+    <div class="overlay_sides overlay_sides_right" id="custom_scroll">
+        <nav class="nav__wrapper">
+            <ul id="side_nav">
+                <li data-menuanchor="home" class="active"><a href="#home" title="home">00</a></li>
+                <li data-menuanchor="sobre" class=""><a href="#sobre" title="sobre">01</a></li>
+                <li data-menuanchor="habilidades" class=""><a href="#habilidades" title="habilidades">02</a></li>
+                <li data-menuanchor="projetos" class=""><a href="#projetos" title="projetos">03</a></li>
+                <li data-menuanchor="contato" class=""><a href="#contato" title="contato">04</a></li>
+                <div class="line"></div>
+            </ul>
+        </nav>
+        <div>
+            <div class="btn_down"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="aliceblue"></path>
+                </svg></div>
+        </div>
+    </div>
 
     <!-- Home Section -->
-    <section class="home" id="home">
+    <section id="home" class="section-home">
 
         <div class="home-content">
+            <div class="animate__animated animate__fadeIn">
+                <p style="font-size: 1.5rem;">Hello, World! Meu nome é
+                    <span style="font-weight: 600;">Matheus Matos</span> e sou
+                </p>
+                <p class="typing-demo">
+                    Desenvolvedor <span style="color: rgb(0, 183, 255);">FullStack.</span>
+                </p>
+                <p style="font-size: 1.3rem">Front-End, Back-End e UX/UI Design.
+            </div>
+        </div>
+        <!-- <img src="./assets/newconnected-api-development.png" class="background-image" alt=""> -->
+    </section>
+    <!-- FAB Vertical para MOBILE-->
+    <div class="fab fabVertical">
+        <div class="fabNav fabNav--left">
+            <a href="#" class="fabItem ic-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="fabItem ic-ig">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="fabItem ic-tw">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
+        <div class="fabTrigger">
+            <a href="#">
+                <span class="icon"></span>
+            </a>
+        </div>
 
-            <h1 style="color: #ffffff;" class="animate__animated animate__fadeInDown">
-                Lorem Ipsum</h1>
-            <p style="color: #979797;" class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Lorem ipsum dolor sit amet consectetur
+    </div>
+
+    <section id="sobre" class="section-sobre">
+        <span
+            style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0; align-items: center;">Sobre
+            mim</span>
+        <div class="card-sobre" id="animacao-sobre">
+            <p>
+                Lorem ipsum dolor sit amet consectetur
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a </p>
-            <div class="social-box">
-                <div href="#"><img src="./assets/github.png" class="social-icon" id="github"></div>
-                <div href="#"><img src="./assets/instagram.png" class="social-icon" id="instagram"></div>
-                <div href="#"><img src="./assets/linkedin.png" class="social-icon" id="linkedin"></div>
-                <div href="#"><img src="./assets/whatsapp.png" class="social-icon" id="whatsapp"></div>
-                <div href="#"><img src="./assets/e-mail.png" class="social-icon" id="email"></div>
-                <div id="vazio"></div>
-            </div>
-
-            <div class="bg-btn-gradient">
-                <button href="#" class="btn">Download</button>
-            </div>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                printer standard dummy text ever since the 1500s, when an unknown
+                printer Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                unknown
+                printer standard dummy text ever since the 1500s, when an unknown printer
+            </p>
         </div>
     </section>
 
-    <section id="sobre">
+
+
+    <section class="section-habilidades" id="habilidades">
+        <div class="habilidades-content">
+            <span
+                style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0;">Habilidades</span>
+            <p>
+                Lorem ipsum dolor sit amet consectetur
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                printer
+            </p>
+        </div>
+        <div class="habilidades-icones">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="html" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="css" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt="javascript" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                alt="typescript" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
+                alt="angular" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="react" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ionic/ionic-original.svg" alt="ionic" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="git" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg"
+                alt="docker" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
+                alt="dotnet" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+                alt="csharp" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg"
+                alt="sqlserver" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="azure" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg" />
+
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="figma" />
+        </div>
+
+    </section>
+
+    <section id="projetos" class="section-projetos">
+        <span
+            style="font-size: 2rem; display: flex; justify-content: center; font-weight: 400; margin: 10px 0;">Projetos</span>
+        <div id="zoom-projetos">
+            <ul class="projetos">
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+                <li class="projetos-card">
+                    <img class="background-projetos-card" src="./assets/background-card.webp" />
+                    <div class="projetos-layer"></div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="contato" class="section">
         <div class="sobre-content">
             <h3>
                 What is Ipsum?</h3>
@@ -78,30 +180,12 @@
                 versions of Lorem Ipsum.</p>
         </div>
     </section>
-    <section class="servicos" id="servicos">
-        <div class="sobre-content">
-            <h3>
-                What is Ipsum?</h3>
-            <p style="color: #979797;">
-                Lorem ipsum dolor sit amet consectetur
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                took a
-                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                but
-                also the
-                leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including
-                versions of Lorem Ipsum.</p>
-        </div>
-    </section>
-    <section class="portifolio" id="portifolio"></section>
 
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
+
+    <!-- Custom TS -->
+    <script src="./js/script.js"></script>
+
+
 </body>
 
 </html>
